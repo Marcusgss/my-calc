@@ -3,35 +3,83 @@
   <head>
     <title>Calculadora</title>
     <meta charset="utf-8" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .fundo{
+            background-image: linear-gradient(45deg,black, yellow);
+            height: 100vh;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .calculadora{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .botao{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 3px;
+            background-color: rgb(31,31,31);
+            border: none;
+            color: #fff;
+        }
+        #display{
+            background-color: white;
+            width: 207px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+        }
+
+    </style>
   </head>
   <body onkeypress="manipularTeclado()">
+   
+    <div class="fundo">
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+
       <table>
           <tr>
               <td colspan="6"><input type="text" id="display" value="0" disabled></td>
           </tr>
           <tr>
-            <td><input type="button" value="7" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="8" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="9" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="*" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="7" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="8" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="9" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="*" class="botao" onclick="atualizarOperacao(this)" /></td>
         </tr>
         <tr>
-            <td><input type="button" value="4" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="5" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="6" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="-" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="4" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="5" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="6" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="-" class="botao" onclick="atualizarOperacao(this)" /></td>
         </tr>
         <tr>
-            <td><input type="button" value="1" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="2" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="3" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="+" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="1" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="2" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="3" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="+" class="botao" onclick="atualizarOperacao(this)" /></td>
         </tr>
         <tr>
-            <td><input type="button" value="C" onclick="limparDisplay()" /></td>
-            <td><input type="button" value="0" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="=" onclick="calcularOperacao()" /></td>
-            <td><input type="button" value="/" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="C" class="botao" onclick="limparDisplay()" /></td>
+            <td><input type="button" value="0" class="botao" onclick="atualizarDisplay(this)" /></td>
+            <td><input type="button" value="=" class="botao" onclick="calcularOperacao()" /></td>
+            <td><input type="button" value="/" class="botao" onclick="atualizarOperacao(this)" /></td>
         </tr>
       </table>
       <script>
