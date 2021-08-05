@@ -9,7 +9,7 @@
             padding: 0;
         }
         .fundo{
-            background-image: linear-gradient(45deg,black, yellow);
+            background-image: linear-gradient(45deg,green, white);
             height: 100vh;
             color: #fff;
             font-family: Arial, Helvetica, sans-serif;
@@ -21,16 +21,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
-            border-radius: 15px;
-            padding: 15px;
+            border-radius:5px;
+            padding: 20px;
         }
         .botao{
+            width:50px;
+            height: 50px;
+            font-size: 30px;
+            cursor: pointer;
+            margin: 4px;
+            background-color: rgb(31,31,31);
+            border: none;
+            color: #fff;
+        }
+        .botaosomar{
             width: 50px;
             height: 50px;
-            font-size: 25px;
+            font-size: 30px;
             cursor: pointer;
-            margin: 3px;
-            background-color: rgb(31,31,31);
+            margin: 4px;
+            background-color:red;
             border: none;
             color: #fff;
         }
@@ -58,32 +68,41 @@
               <td colspan="6"><input type="text" id="display" value="0" disabled></td>
           </tr>
           <tr>
-            <td><input type="button" value="7" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="8" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="9" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="*" class="botao" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="√" class="botao" onclick="raizquadrada()" ></td>
+            <td><input type="button" value="x²" class="botao" onclick="elevacaodois()" ></td>
+            <td><input type="button" value="*" class="botao" onclick="atualizarOperacao(this)"></td>
+            <td><input type="button" value="/" class="botao" onclick="atualizarOperacao(this)" ></td>
+          </tr>
+          <tr>
+            <td><input type="button" value="7" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="8" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="9" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="%" class="botao" onclick="porcentagem" ></td>
+            
         </tr>
         <tr>
-            <td><input type="button" value="4" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="5" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="6" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="-" class="botao" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="4" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="5" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="6" class="botao" onclick="atualizarDisplay(this)" ></td>
+            <td><input type="button" value="-" class="botao" onclick="atualizarOperacao(this)" ></td>
         </tr>
         <tr>
-            <td><input type="button" value="1" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="2" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="3" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="+" class="botao" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="1" class="botao" onclick="atualizarDisplay(this)"></td>
+            <td><input type="button" value="2" class="botao" onclick="atualizarDisplay(this)"></td>
+            <td><input type="button" value="3" class="botao" onclick="atualizarDisplay(this)"></td>
+            <td><input type="button" value="+" class="botao" onclick="atualizarOperacao(this)"></td>
         </tr>
         <tr>
             <td><input type="button" value="C" class="botao" onclick="limparDisplay()" /></td>
             <td><input type="button" value="0" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="=" class="botao" onclick="calcularOperacao()" /></td>
-            <td><input type="button" value="/" class="botao" onclick="atualizarOperacao(this)" /></td>
+            <td><input type="button" value="." class="botao" onclick=""></td>
+            <td><input type="button" value="=" class="botaosomar" onclick="calcularOperacao()"></td>
+         
         </tr>
       </table>
       <script>
-        function atualizarDisplay(btn){
+
+          function atualizarDisplay(btn){
             const display = document.getElementById('display');
             if(display.value.length === 9) return;
             if(display.value === '0') display.value = btn.value;
@@ -111,10 +130,31 @@
             operador = '';
         }       
 
-        function manipularTeclado(){
+         function manipularTeclado(){
             if(/[0-9]/.test(event.key))
                 atualizarDisplay({value: event.key});
         }
+            function raizquadrada(){
+              const display = document.getElementById('display');
+              const raiz = parseInt(display.value);
+              valor1 = eval(Math.sqrt(raiz));
+              display.value = valor1;
+		    }
+            function elevacaodois(){
+            const display = document.getElementById('display');
+              const math = parseInt(display.value);
+              valor1 = eval(Math.pow(math, 2));
+              display.value = valor1;
+		    }
+
+            function porcentagem(){
+            const display = document.getElementById('display');
+              const math = parseInt(display.value);
+              valor1 = (math)/100;
+              display.value = valor1;
+		    }
+         
+        
     </script>
 
   </body>
