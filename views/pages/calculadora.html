@@ -9,7 +9,7 @@
             padding: 0;
         }
         .fundo{
-            background-image: linear-gradient(45deg,green, white);
+            background-image: linear-gradient(45deg,rgb(255, 255, 255), white);
             height: 100vh;
             color: #fff;
             font-family: Arial, Helvetica, sans-serif;
@@ -29,141 +29,108 @@
             height: 50px;
             font-size: 25px;
             cursor: pointer;
-            margin:1px;
+            margin: 3px;
             background-color: rgb(31,31,31);
             border: none;
             color: #fff;
         }
-            .botaosomar{
-            width: 50px;
-            height: 50px;
-            font-size: 30px;
-            cursor: pointer;
-            margin: 4px;
-            background-color:red;
-            border: none;
-            color: #fff;
-        }
-        
         #display{
             background-color: white;
-            width: 207px;
-            height: 30px;
-            margin: 5px;
+            width: 217px;
+            height: 35px;
+            margin: 3px;
             font-size: 25px;
             color: black;
             text-align: right;
             padding: 5px;
         }
-        .Ifal{
-            background-image: linear-gradient(45deg,green, white);
-            height: 100vh;
-            color:blue;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
+        .botaosomar{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 3px;
+            background-color:red;
+            border: none;
+            color: #fff;
         }
 
     </style>
   </head>
-
   <body onkeypress="manipularTeclado()">
-    
-    <div class="Ifal">
-        <h1>IFAL-Campus Rio Largo</h1>
-        
     <div class="fundo">
-        <div class="calculadora">
-            <h1>Calculadora</h1>
-
-      <table>
-      
-          <tr>
-              <td colspan="6"><input type="text" id="display" value="0" disabled></td>
-          </tr>
-          <tr>
-            <td><input type="button" value="x²" class="botao" onclick="elevação()" /></td>
-            <td><input type="button" value="%" class="botao" onclick="porcentagem()" /></td>
-            <td><input type="button" value="√" class="botao" onclick="raizquadrada()" /></td> 
-            <td><input type="button" value="*" class="botao" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-          <tr>
-            <td><input type="button" value="7" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="8" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="9" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="-" class="botao" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="4" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="5" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="6" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="+" class="botao" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="1" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="2" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button" value="3" class="botao" onclick="atualizarDisplay(this)" /></td>
-           <td><input type="button" value="/" class="botao" onclick="atualizarOperacao(this)" /></td>
-        </tr>
-        <tr>
-            <td><input type="button"    value="C" class="botao" onclick="limparDisplay()" /></td>
-            <td><input type="button"    value="0" class="botao" onclick="atualizarDisplay(this)" /></td>
-            <td><input type="button"    value="." class="botao" onclick="atualizarDisplay(this)"></td>
-            <td><input type="button"    value="=" class="botaosomar" onclick="calcularOperacao()" /></td>
-        </tr>
-      </table>
-      <script>
-        function atualizarDisplay(btn){
-            const display = document.getElementById('display');
-            if(display.value.length === 9) return;
-            if(display.value === '0') display.value = btn.value;
-            else display.value += btn.value;
+        <div class="calculadora"><br>
+            <p id="display"></p><br>
+            <table align="center">
+                <tr>  
+                    <td><button class="botao" onclick="clean()">C</button></td>
+                    <td><button class="botao" onclick="back()">&larr;</button></td>
+                    <td><button class="botao" ('( ')">( </button></td>
+                    <td><button class="botao" (' )')"> )</button></td>
+                   
+                  
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert()">%</button></td>
+                    <td><button class="botao" ()">√</button></td>
+                    <td><button class="botao" onclick="insert('/')">/</button></td>
+                    <td><button class="botao" onclick="insert()">x²</button></td>
+                    
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('7')">7</button></td>
+                    <td><button class="botao" onclick="insert('8')">8</button></td>
+                    <td><button class="botao" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('*')">*</button></td>
+                 
+                    
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td>
+                    <td><button class="botao" onclick="insert('5')">5</button></td>
+                    <td><button class="botao" onclick="insert('6')">6</button></td>
+                    <td><button class="botao" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td>
+                    <td><button class="botao" onclick="insert('2')">2</button></td>
+                    <td><button class="botao" onclick="insert('3')">3</button></td>
+                    <td><button class="botao" onclick="insert('+')">+</button></td>
+             
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 106px;" onclick="insert('0')">0</button></td>
+                    <td><button class="botao" onclick="insert('.')">.</button></td>
+                    <td><button class="botaosomar" onclick="calcular()">=</button></td>
+                </tr>
+     
+            </table>
+        </div>
+    </div>
+    <script>
+        function insert(num) {
+            var numero = document.getElementById('display').innerHTML;
+            document.getElementById('display').innerHTML = numero + num;
+        }
+        function clean() {
+            document.getElementById('display').innerHTML = "";
+        }
+        function calcular() {
+            var display = document.getElementById('display').innerHTML;
+            if (display) {
+                document.getElementById('display').innerHTML = eval(display);
+            }
+            else {
+                document.getElementById('display').innerHTML = "0"
+            }
         }
 
-        function limparDisplay(){
-            document.getElementById('display').value = '0';
-        }
-
-        var operador = ''
-        var valor1 = 0
-        function atualizarOperacao(btn){
-            const display = document.getElementById('display');
-            operador = btn.value;
-            valor1 = parseInt(display.value);
-            display.value = '0';
-        }
-
-        function calcularOperacao(){
-            const display = document.getElementById('display');
-            const valor2 = parseInt(display.value);
-            valor1 = eval(valor1+operador+valor2);
-            display.value = valor1;
-            operador = '';
-        }       
-
-        function manipularTeclado(){
-            if(/[0-9]/.test(event.key))
-                atualizarDisplay({value: event.key});
-        }
-        function raizquadrada(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
-              valor1 = eval(Math.sqrt(math));
-              display.value = valor1;
-		    }
-       function elevação(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
-              valor1 = eval(Math.pow(math, 2));
-              display.value = valor1;
-		    }
-            function porcentagem(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
-              valor1 = (math)/100;
-              display.value = valor1;
-		    }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+} 
 
     </script>
-
-  </body>
+</body>
 </html>
