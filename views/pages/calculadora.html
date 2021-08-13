@@ -48,8 +48,6 @@
     </style>
   </head>
   <body onkeypress="manipularTeclado()">
-   <div class="fundo">
-        <h1>Ifal Campos Rio Largo</h1>
     <div class="fundo">
         <div class="calculadora">
             <h1>Calculadora</h1>
@@ -92,11 +90,12 @@
       </table>
 
       <script>
-        function atualizarDisplay(btn){
-            const display = document.getElementById('display');
+            function atualizarDisplay(btn){
+            display = document.getElementById('display');
             if(display.value.length === 9) return;
             if(display.value === '0') display.value = btn.value;
             else display.value += btn.value;
+       
         }
 
         function limparDisplay(){
@@ -114,8 +113,8 @@
         }
 
         function calcularOperacao(){
-            const display = document.getElementById('display');
-            const valor2 = parseInt(display.value);
+            display = document.getElementById('display');
+            valor2 = parseInt(display.value);
             valor1 = eval(valor1+operador+valor2);
             display.value = valor1;
             operador = '';
@@ -126,20 +125,20 @@
                 atualizarDisplay({value: event.key});
         }
         function raizquadrada(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
+              display = document.getElementById('display');
+               math = parseInt(display.value);
               valor1 = eval(Math.sqrt(math));
               display.value = valor1;
 		    }
        function elevação(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
+            display = document.getElementById('display');
+             math = parseInt(display.value);
               valor1 = eval(Math.pow(math, 2));
               display.value = valor1;
 		    }
        function porcentagem(){
-              const display = document.getElementById('display');
-              const math = parseInt(display.value);
+             display = document.getElementById('display');
+             math = parseInt(display.value);
               valor1 = (math)/100;
               display.value = valor1;
 		    }
