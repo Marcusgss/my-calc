@@ -6,5 +6,6 @@ Extraída do livro [_Proramação Web com Node.js - Luiz Tools_ ](https://www.am
 É Uma Calculadora para a realização de cálculos numéricos simples.
 
 Marcus Gabriel, Erik Matheus e Nataliana Alves
+922A
 
 https://mycalcgrupo22.herokuapp.com/
